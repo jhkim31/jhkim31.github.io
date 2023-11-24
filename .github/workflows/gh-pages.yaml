@@ -25,6 +25,9 @@ jobs:
       - name: npm build
         run: npm run build
 
+      - name: config copy
+        run: cp -r ./config ./build/config
+
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
