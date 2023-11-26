@@ -1,26 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import axiosInstance from "@api";
+import PC from "@components/PC";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { SET_CONFIG } from "./redux/action";
 
 function App() {
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        axiosInstance.get("/config/config.json")
+            .then(d => {
+                dispatch({
+                    type: SET_CONFIG,
+                    config: d.data
+                })
+            })
+            .catch(e => {
+                console.error(e);
+            })
+    })
     return (
-        <div className="App">
-            <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
-                <p>
-                    Edit <code>src/App.tsx</code> and save to reload.
-                </p> 
-                <a
-                    className="App-link"
-                    href="https://reactjs.org"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Learn React
-                </a>
-            </header>
-        </div>
-    );
+        <PC />
+    )
 }
 
 export default App;
