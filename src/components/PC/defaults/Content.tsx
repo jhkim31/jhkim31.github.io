@@ -1,16 +1,20 @@
 import styled from "styled-components"
-import Aboutme from "@components/PC/content/Aboutme"
-import Career from "../content/Career"
-import Skills from "@components/PC/content/Skills"
+import Introduce from "@components/PC/content/Introduce"
+import Career from "@pc/content/Career"
+import Skills from "@pc/content/Skills"
+import Experience from "../content/Experience"
+import Project from "../content/Project"
+import Education from "../content/Education"
+import Certificate from "../content/Certificate"
+import TroubleShooting from "../content/TroubleShooting"
 
 const BodyWrapper = styled.div`        
     width: 100%;      
-    display: flex;       
-    height: 2000px;
-    justify-content: center;    
+    display: flex;           
+    justify-content: center;        
 `
 
-const Sidebar = styled.div`
+const SidebarSpace = styled.div`
     width: 300px;
 `
 
@@ -19,14 +23,22 @@ const BodyContainer = styled.div`
     padding: 30px;
 `
 
+const WhiteSpace = styled.div`
+    height: 500px;
+`
+
 export default function Content() {
     return (
         <BodyWrapper>    
-            <Sidebar />
+            <SidebarSpace />
             <BodyContainer>
-                <Aboutme />
-                <Career />
-                <Skills />                                
+                <Introduce />
+                <Experience />
+                <TroubleShooting />
+                <Skills />  
+                <Education />                                
+                <Certificate />
+                <WhiteSpace />
             </BodyContainer>
         </BodyWrapper>
     )

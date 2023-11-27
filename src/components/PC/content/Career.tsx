@@ -1,27 +1,9 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-const AboutmeWrapper = styled.div`
-    margin-bottom: 100px;
-`
+import { H1, H2, H3, Ul, Li } from '@pc/common';
 
-const H1 = styled.h1`
-    color: #22353d;
-    padding-bottom: 10px;
-    border-bottom: 5px solid #367DA2;;
-    width: 50%;
-`
-
-const H2 = styled.h2`
-    color: #367DA2;
-`
-
-const H3 = styled.h3`
-    color: #54818F;
-`
-
-const ListContainer = styled.ul``
-const ListItem = styled.li`
-    margin:10px;
+const CareerWrapper = styled.div`
+    margin-bottom: 130px;
 `
 
 export default function Career() {
@@ -39,21 +21,21 @@ export default function Career() {
         }
     ]
     return (
-        <AboutmeWrapper id="career" className="contents">
+        <CareerWrapper id="career" className="contents">
             <H1>CAREER</H1>
             {careers.map((career) => {
                 return (
                     <div key={Math.random()}>
                         <H2>{career.org}</H2>
                         <H3>{career.team}</H3>
-                        <ListContainer>
+                        <Ul>
                             {career.works.map(work => {
-                                return <ListItem key={Math.random()}>{work}</ListItem>
+                                return <Li key={Math.random()}>{work}</Li>
                             })}
-                        </ListContainer>
+                        </Ul>
                     </div>
                 )
             })}
-        </AboutmeWrapper>
+        </CareerWrapper>
     )
 }

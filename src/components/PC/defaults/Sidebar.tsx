@@ -1,6 +1,8 @@
-import styled from "styled-components";
-import { GithubIcon, GitlabIcon, NotionIcon } from "@components/core/icons";
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
+import styled from 'styled-components';
+
+import { GithubIcon, GitlabIcon, NotionIcon } from '@components/PC/common/icons';
+import { A } from '@pc/common';
 
 const SidebarWrapper = styled.div`
     position: fixed;
@@ -9,8 +11,9 @@ const SidebarWrapper = styled.div`
     display: flex;    
     flex-direction: column;
     justify-content: space-between;
-    background: #2E5B6F;
+    background: #648BDE;
     overflow: scroll;
+    color: #EDFFED;
 `
 
 const SidebarContent = styled.div`
@@ -27,8 +30,7 @@ const SidebarTitle = styled.div`
     margin-bottom: 30px;
 
     font-size: 40px;    
-    font-weight: 600;   
-    color: #fff; 
+    font-weight: 650;       
 `
 
 const SidebarImg = styled.img`
@@ -58,16 +60,14 @@ const ContactIcon = styled.a`
     }
 `
 
-const InfoContainer = styled.div`
-    color: #151515;    
-`
+const InfoContainer = styled.div``;
 
 const InfoItem = styled.div`
     margin: 10px 0;
-    font-weight: 580;
+    font-weight: 600;    
     &:hover {
         cursor: pointer;
-        color: #eee;
+        color: #151515;    
     }
 `
 
@@ -80,7 +80,11 @@ const SubTitleContainer = styled.div`
 
 const SubTitleBox = styled.a<{ selected: boolean }>`    
     text-decoration: none; 
-    color: ${props => props.selected ? "#ffffff" : "#151515"};   
+    color: ${props => props.selected ? "#151515" : "#eee"}; 
+    &:hover {
+        cursor: pointer;
+        color: #151515;    
+    }
     font-size: 24px;
     margin: 10px;
     font-weight: 600;
@@ -88,23 +92,18 @@ const SubTitleBox = styled.a<{ selected: boolean }>`
 
 const Footer = styled.div`
     width: 100%;
-    height: 50px;
+    min-height: 50px;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;    
+    justify-content: center;    
     align-items: center;    
     color: #252525;
+    font-weight: normal;
 `
 
 const HR = styled.div`
     width :90%;    
     border-top: 1px solid #353535;
-`
-const A = styled.a`
-    text-decoration: none;
-    &:visited {
-        color: #0000EE;
-    }
 `
 
 export default function Sidebar() {
@@ -126,18 +125,29 @@ export default function Sidebar() {
 
     const subTitles = [
         {
-            label: "ABOUT ME",
-            id: "aboutme"
+            label: "INTRODUCE",
+            id: "introduce"
         },
         {
-            label: "CAREER",
-            id: "career"
+            label: "EXPERIENCE",
+            id: "experience"
+        },                
+        {
+            label: "TROUBLESHOOTING",
+            id: "troubleshooting"
         },
         {
             label: "SKILLS",
             id: "skills"
+        },
+        {
+            label: "EDUCATION",
+            id: "education"
+        },
+        {
+            label: "CERTIFICATE",
+            id: "certificate"
         }
-
     ]
     const getCurrentSection = () => {
         subTitles.map(subTitle => {
@@ -145,7 +155,7 @@ export default function Sidebar() {
             const itemTopPosition = element!.offsetTop;
             const itemBottomPosition = itemTopPosition + element!.offsetHeight;
 
-            if (window.scrollY >= itemTopPosition && window.scrollY < itemBottomPosition) {
+            if (window.scrollY >= itemTopPosition - 10 && window.scrollY < itemBottomPosition) {
                 setCurrentSubTitle(subTitle.label);
                 return;
             }
@@ -163,7 +173,7 @@ export default function Sidebar() {
     return (
         <SidebarWrapper>
             <SidebarContent>
-                <SidebarTitle>김재현</SidebarTitle>
+                <SidebarTitle>김재현 입니다.</SidebarTitle>
                 <SidebarImg src={"/assets/img/jh.jpg"}></SidebarImg>
                 <ContactIconContainer>
                     {contactMe.map(contact => {
