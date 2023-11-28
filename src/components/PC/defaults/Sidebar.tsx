@@ -1,23 +1,24 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-import { GithubIcon, GitlabIcon, NotionIcon } from '@components/PC/common/icons';
+import { GithubIcon, GitlabIcon, NotionIcon } from '@pc/common/icons';
+import config from '@pc/config';
 import { A } from '@pc/common';
 
-const SidebarWrapper = styled.div`
+const SidebarWrapper = styled.div`    
+    width: ${config.sidebar.width}px;
+    background: ${config.sidebar.backgroundColor};
+    color: ${config.sidebar.color};
     position: fixed;
-    width: 300px;
     height: 100%;
     display: flex;    
     flex-direction: column;
-    justify-content: space-between;
-    background: #648BDE;
-    overflow: scroll;
-    color: #EDFFED;
+    justify-content: space-between;    
+    overflow: scroll;    
 `
 
 const SidebarContent = styled.div`
-    padding: 30px;
+    padding: ${config.sidebar.content.padding}px;
     width: 100%;        
     display: flex;
     flex-direction: column;    
@@ -26,53 +27,53 @@ const SidebarContent = styled.div`
 
 const SidebarTitle = styled.div`
     width: 100%;
-    margin-top: 10px;
-    margin-bottom: 30px;
+    margin-top: ${config.sidebar.title.marginTop}px;
+    margin-bottom: ${config.sidebar.title.marginBottom}px;
 
-    font-size: 40px;    
-    font-weight: 650;       
+    font-size: ${config.sidebar.title.fontSize}px;    
+    font-weight: ${config.sidebar.title.fontWeight};       
 `
 
 const SidebarImg = styled.img`
-    width: 150px;        
-    border-radius: 3px;
+    width: ${config.sidebar.img.width}px;        
+    border-radius: ${config.sidebar.img.borderRadius}px;
 `
 
 const ContactIconContainer = styled.div`
-    margin: 20px 0;    
-    height: 30px;
+    margin: ${config.sidebar.contactIconContainer.marginTopBottom}px 0;    
+    height: ${config.sidebar.contactIconContainer.height}px;
     display: flex;
     flex-direction: row;    
     align-items: center;
 `
 
 const ContactIcon = styled.a`       
-    margin: 5px;
+    margin: ${config.sidebar.contactIcon.margin}px;    
+    width: ${config.sidebar.contactIcon.width}px;
+    height: ${config.sidebar.contactIcon.height}px;    
+    background: ${config.sidebar.contactIcon.backgroundColor};
+    border-radius: ${config.sidebar.contactIcon.borderRadius}px;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 30px;
-    height: 30px;    
-    background: #494952;
-    border-radius: 4px;
     &:hover {
-        background: #262626;
+        background: ${config.sidebar.contactIcon.hover.backgroundColor};
     }
 `
 
 const InfoContainer = styled.div``;
 
 const InfoItem = styled.div`
-    margin: 10px 0;
-    font-weight: 600;    
-    &:hover {
+    margin: ${config.sidebar.infoItem.marginTopBottom}px 0;
+    font-weight: ${config.sidebar.infoItem.fontWeight};    
+    &:hover {        
+        color: ${config.sidebar.infoItem.hover.color};    
         cursor: pointer;
-        color: #151515;    
     }
 `
 
 const SubTitleContainer = styled.div`
-    margin-top: 50px;
+    margin-top: ${config.sidebar.subTitleContainer.marginTop}px;
     width: 100%;
     display: flex;
     flex-direction: column;    
@@ -80,14 +81,14 @@ const SubTitleContainer = styled.div`
 
 const SubTitleBox = styled.a<{ selected: boolean }>`    
     text-decoration: none; 
-    color: ${props => props.selected ? "#151515" : "#eee"}; 
+    color: ${props => props.selected ? config.sidebar.subTitleBox.selected.color : config.sidebar.subTitleBox.color}; 
     &:hover {
         cursor: pointer;
-        color: #151515;    
+        color: ${config.sidebar.subTitleBox.hover.color};    
     }
-    font-size: 24px;
-    margin: 10px;
-    font-weight: 600;
+    font-size: ${config.sidebar.subTitleBox.fontSize}px;
+    margin: ${config.sidebar.subTitleBox.margin}px;
+    font-weight: ${config.sidebar.subTitleBox.fontWeight};
 `
 
 const Footer = styled.div`
@@ -99,11 +100,6 @@ const Footer = styled.div`
     align-items: center;    
     color: #252525;
     font-weight: normal;
-`
-
-const HR = styled.div`
-    width :90%;    
-    border-top: 1px solid #353535;
 `
 
 export default function Sidebar() {
@@ -131,7 +127,7 @@ export default function Sidebar() {
         {
             label: "EXPERIENCE",
             id: "experience"
-        },                
+        },
         {
             label: "TROUBLESHOOTING",
             id: "troubleshooting"

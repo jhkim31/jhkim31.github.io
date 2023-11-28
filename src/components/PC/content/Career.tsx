@@ -1,25 +1,27 @@
+import { useState, useEffect } from 'react';
 import styled from 'styled-components';
-
+import config from '@pc/config';
 import { H1, H2, H3, Ul, Li } from '@pc/common';
+import axiosInstance from '@api';
 
 const CareerWrapper = styled.div`
-    margin-bottom: 130px;
+    margin-bottom: ${config.contentMargin}px;
 `
+interface ICareer {
+    org: string;
+    team: string;
+    works: string[];
+}
 
 export default function Career() {
-    const careers = [
-        {
-            org: "2021.01 ~   한국전자기술연구원 (KETI)",
-            team: "에너지 IT 융합센터 빅데이터팀",
-            works: [
-                "엔드 디바이스 관리 웹 플랫폼 ThingWire 설계, 개발",
-                "빅데이터 플랫폼 수집, 적재 파트 설계, 개발",
-                "WoT 표준 기반 및 Multicast-DNS Node-RED 모듈 개발",
-                "Lidar 센서, 라즈베리 파이를 이용한 People Counter 연구 개발",
-                "웹 기반 기상데이터 시각화 설계, 개발 및 기술이전"
-            ]
-        }
-    ]
+    const [careers, setCareers] = useState<ICareer[]>([]);
+
+    useEffect(() => {
+        axiosInstance.get('/config/careers.json')
+            .then(d => setCareers(d.data))
+            .catch(e => console.error(e))
+
+    }, [])
     return (
         <CareerWrapper id="career" className="contents">
             <H1>CAREER</H1>

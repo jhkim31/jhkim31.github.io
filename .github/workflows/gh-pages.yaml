@@ -6,7 +6,7 @@ on:
     - master
 
 jobs:
-  build-test:
+  gh-pages-cicd:
     runs-on: ubuntu-latest
     env:
       CI: false
@@ -24,11 +24,8 @@ jobs:
       - name: npm ci
         run: npm ci
       
-      - name: npm build
-        run: npm run build
-
-      - name: config copy
-        run: cp -r ./config ./build/config
+      - name: npm product
+        run: npm run build      
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3

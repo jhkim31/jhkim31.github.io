@@ -1,12 +1,10 @@
 import styled from "styled-components"
-import Introduce from "@components/PC/content/Introduce"
-import Career from "@pc/content/Career"
+import Introduce from "@pc/content/Introduce"
 import Skills from "@pc/content/Skills"
-import Experience from "../content/Experience"
-import Project from "../content/Project"
-import Education from "../content/Education"
-import Certificate from "../content/Certificate"
-import TroubleShooting from "../content/TroubleShooting"
+import Experience from "@pc/content/Experience"
+import Education from "@pc/content/Education"
+import Certificate from "@pc/content/Certificate"
+import TroubleShooting from "@pc/content/TroubleShooting"
 
 const BodyWrapper = styled.div`        
     width: 100%;      

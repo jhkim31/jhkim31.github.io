@@ -1,8 +1,11 @@
 import styled from "styled-components";
+import config from '@pc/config';
 import { H1 } from "../common";
+import { useEffect, useState } from "react";
+import axiosInstance from "@api";
 
 const SkillsWrapper = styled.div`
-
+    margin-bottom: ${config.contentMargin}px;
 `
 
 const SkillsContainer = styled.div`
@@ -13,85 +16,38 @@ const SkillsContainer = styled.div`
 const SkillItem = styled.div`        
     display: flex;
     flex-direction: column;
-    margin-bottom: 30px;
+    margin-bottom: ${config.skills.itemMarginBottom}px;
 `
 
 const SkillTitle = styled.h3`
-    display: flex;
-    
-    align-items: center;
-    color: #367DA2;   
-    font-size: 1.3em; 
+    color: ${config.skills.title.color};   
+    font-size: ${config.skills.title.fontSize};
+    display: flex;    
+    align-items: center;     
 `
 
 const SkillList = styled.ul`
-    padding: 0;
+    padding: ${config.skills.list.padding};
 `
 
 const SkillListItem = styled.li`
-    display: flex;
-    
-    align-items: center;    
-    margin: 10px;
-    color: #333;
+    margin: ${config.skills.list.margin}px;
+    color: ${config.skills.list.color};
+    display: flex;    
+    align-items: center;        
 `
 
-
+interface ISkill {
+    title: string;
+    list: string[];
+}
 export default function Skills() {
-    const skills = [
-        {
-            title: "Language",
-            list: [
-                "Javascript",
-                "Typescript",
-                "Python",
-                "C++"
-            ]
-        },
-        {
-            title: "Back-End",
-            list: [
-                "NodeJS",
-                "Express",
-                "Python",
-                "Flask"
-            ]
-        },
-        {
-            title: "Database",
-            list: [
-                "Mariadb, Mysql",
-                "Redis, MongoDB",
-                "OpenTSDB, InfluxDB"                
-            ]
-        },
-        {
-            title: "Platform",
-            list: [
-                "Docker",
-                "Kubernetes",
-                "AWS",
-                "Kafka"
-            ]
-        },
-        {
-            title: "Front-End",
-            list: [
-                "HTML, CSS, JS",
-                "React"                
-            ]
-        },
-        {
-            title: "ETC",
-            list: [
-                "Linux",
-                "gRPC",
-                "Prometheus, Grafana",
-                "github-actions",
-                "gitlab-pipeline"                
-            ]
-        }
-    ]
+    const [skills, setSkills] = useState<ISkill[]>([]);
+    useEffect(() => {
+        axiosInstance.get('/config/skills.json')
+            .then(d => setSkills(d.data))
+            .catch(e => console.error(e));
+    }, [])
     return (
         <SkillsWrapper id="skills" className="contents">
             <H1>SKILLS</H1>

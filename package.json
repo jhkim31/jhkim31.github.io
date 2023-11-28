@@ -27,7 +27,8 @@
   },
   "scripts": {
     "start" : "craco start",
-    "build": "craco build && cp -r ./config ./build/config && cp -r ./assets ./build/assets"
+    "build": "craco build && cp -r ./config ./build/config && cp -r ./assets ./build/assets",
+    "product" : "GENERATE_SOURCEMAP=false craco build && cp -r ./config ./build/config && cp -r ./assets ./build/assets"
   },
   "eslintConfig": {
     "extends": [

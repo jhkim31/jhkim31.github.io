@@ -1,10 +1,11 @@
 import styled from "styled-components";
+import config from '@pc/config';
 
 const Li = styled.li`
-    margin: 10px;
-    font-weight: 550;
-    color: #333;
-    line-height: 150%;
+    margin: ${config.Li.margin}px;
+    font-weight: ${config.Li.fontWeight};
+    color: ${config.Li.color};
+    line-height: ${config.Li.lineHeight}%;
 `
 
 export default Li;

@@ -1,9 +1,9 @@
 import styled from 'styled-components';
-
+import config from '@pc/config';
 import { H1 } from '@pc/common';
 
 const TroubleShootingWrapper = styled.div`
-    margin-bottom: 130px;
+    margin-bottom: ${config.contentMargin}px;
 `
 
 export default function TroubleShooting() {    

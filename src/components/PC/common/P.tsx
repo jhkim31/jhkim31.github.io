@@ -1,9 +1,10 @@
 import styled from "styled-components";
+import config from '@pc/config';
 
 const P = styled.p`
-    color: #333;
-    line-height: 180%;
-    font-weight: 570;
+    color: ${config.P.color};
+    line-height: ${config.P.lineHeight}%;
+    font-weight: ${config.P.fontWeight};
 `
 
 export default P;

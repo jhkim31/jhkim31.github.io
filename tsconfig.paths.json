@@ -6,7 +6,7 @@
             "@lib/*" : ["lib/*"],
             "@components/*" : ["components/*"],
             "@interface/*" : ["interface/*"],
-            "@pc/*" : ["components/PC/*"]
+            "@pc/*" : ["components/pc/*"]
          }
     }
 }
