@@ -1,4 +1,4 @@
-import PC from './components/pc';
+import PC from '@components/pc';
 
 function App() {
     return (

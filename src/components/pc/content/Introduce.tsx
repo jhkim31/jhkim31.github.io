@@ -10,7 +10,7 @@ export default function Introduce() {
 
     return (
         <IntroduceWrapper id="introduce" className="contents">
-            <H1>INTRODUCE</H1>        
+            <H1>INTRODUCE.</H1>        
             <Ul>
                 <Li>
                     웹, 클라우드, NodeJS에 관심이 많은 주니어 개발자 입니다.
