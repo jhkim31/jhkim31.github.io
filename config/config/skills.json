@@ -1,0 +1,54 @@
+[
+    {
+        "title": "Language",
+        "list": [
+            "Javascript",
+            "Typescript",
+            "Python",
+            "C++"
+        ]
+    },
+    {
+        "title": "Back-End",
+        "list": [
+            "NodeJS",
+            "Express",
+            "Python",
+            "Flask"
+        ]
+    },
+    {
+        "title": "Database",
+        "list": [
+            "Mariadb, Mysql",
+            "Redis, MongoDB",
+            "OpenTSDB, InfluxDB"                
+        ]
+    },
+    {
+        "title": "Platform",
+        "list": [
+            "Docker",
+            "Kubernetes",
+            "AWS",
+            "Kafka"
+        ]
+    },
+    {
+        "title": "Front-End",
+        "list": [
+            "HTML, CSS, JS",
+            "React"                
+        ]
+    },
+    {
+        "title": "ETC",
+        "list": [
+            "Linux",
+            "gRPC",
+            "Prometheus, Grafana",
+            "github-actions",
+            "gitlab-pipeline"                
+        ]
+    }
+]
