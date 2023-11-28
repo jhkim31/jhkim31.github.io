@@ -1,6 +1,6 @@
 const mainThemeColor1 = "#648BDE";
 const mainThemeColor2 = "#4895C2";
-const mainThemeColor3 = "#3D9FA5";
+const mainThemeColor3 = "#4ea3d4";
 const mainThemeColor4 = "#367DA2";
 const mainThemeColor5 = "#333333";
 const mainThemeColor6 = "#151515";
@@ -84,7 +84,8 @@ const config = {
         "contentMargin" : 50
     },
     "A" : {
-        "color" : "#0000D9"
+        "color" : "#1A0DAB"
+        
     },
     "H1" : {
         "color" : mainThemeColor2,
@@ -97,13 +98,14 @@ const config = {
         "color" : mainThemeColor2
     },
     "H3" : {
-        "color" : mainThemeColor5
+        "color" : mainThemeColor3
     },
     "H4" : {
         "marginTopBottom" : 20,
         "marginLeft" : 30,
         "fontSize" : 1.3,
-        "color" : mainThemeColor5
+        "color" : mainThemeColor5,
+        "fontWeight" : 750
     },
     "P" : {
         "color" : mainThemeColor5,

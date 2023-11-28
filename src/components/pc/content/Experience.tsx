@@ -3,6 +3,7 @@ import config from '@pc/config';
 import { H1, H2, H3, Ul, Li, H4 } from '@pc/common';
 import { useEffect, useState } from 'react';
 import axiosInstance from '@api';
+import Markdown from "react-markdown";
 
 const ExperienceWrapper = styled.div`
     margin-bottom: ${config.contentMargin}px;
@@ -30,7 +31,7 @@ export default function Experience() {
     }, [])
     return (
         <ExperienceWrapper id="experience" className="contents">
-            <H1>EXPERIENCE</H1>
+            <H1>EXPERIENCE</H1>            
             {experiences.map((experience) => {
                 return (
                     <ExperienceContainer key={Math.random()}>
@@ -42,7 +43,7 @@ export default function Experience() {
                                     <H4>{content.title}</H4>
                                     <Ul>
                                         {content.content.map(work => {
-                                            return <Li key={Math.random()}>{work}</Li>
+                                            return <Li key={Math.random()}><Markdown>{work}</Markdown></Li>
                                         })}
                                     </Ul>
                                 </div>
